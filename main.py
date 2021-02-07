@@ -14,6 +14,7 @@ def main():
     updater = Updater(config.TELEGRAM_TOKEN, use_context=True)
     updater.dispatcher.add_handler(CommandHandler('start', handlers.start_handler))
     updater.dispatcher.add_handler(CommandHandler('next', handlers.next_handler))
+    updater.dispatcher.add_handler(CommandHandler('fact', handlers.fact_handler))
 
     updater.start_polling()
 
