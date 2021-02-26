@@ -6,3 +6,4 @@ load_dotenv() #берём переменную из .env, но эта перем
 
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 IMAGES_PATH = './images/'
+FACTS_STORE_TYPE = 'hardcoded'

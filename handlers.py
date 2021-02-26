@@ -1,21 +1,16 @@
-import os
-import random
+import texts
+from facts_store import get_facts_store
+from images_store import ImagesStore
 
-from telegram.ext import Updater
-from telegram.ext import CommandHandler
-
-import images_store
-import config
-import Texts
+facts = get_facts_store()
+images = ImagesStore()
 
 def start_handler(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text=Texts.TEXT_START)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=texts.TEXT_START)
 
-#отправить рандомного вомбата
-def next_handler(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text=Texts.TEXT_NEXTIMAGE)
-    context.bot.sendPhoto(chat_id=update.effective_chat.id, photo=open(images_store.get_random_image_path(), 'rb'))
+def pic_handler(update, context):
+    context.bot.send_message(chat_id=update.effective_chat.id, text=texts.TEXT_NEXTIMAGE)
+    context.bot.sendPhoto(chat_id=update.effective_chat.id, photo=open(images.get_random_image_path(), 'rb'))
 
-#отправить рандомный факт
 def fact_handler(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text=random.choice(Texts.WOMBAT_FACT))
+    context.bot.send_message(chat_id=update.effective_chat.id, text=facts.get_random_wombat_fact())
