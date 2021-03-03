@@ -23,6 +23,7 @@ class HardCodedFactsStore(FactsStore):
 
 
 def get_facts_store():
+    #raise ValueError(config.FACTS_STORE_TYPE) - можно использовать ValueError для отладки
     if config.FACTS_STORE_TYPE == 'hardcoded':
         return HardCodedFactsStore()
     elif config.FACTS_STORE_TYPE == 'text':
