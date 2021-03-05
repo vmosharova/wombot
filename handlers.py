@@ -1,4 +1,6 @@
 import texts
+
+from scheduling import schedule_wobmat_fact, schedule_wobmat_pic
 from facts_store import get_facts_store
 from images_store import ImagesStore
 
@@ -14,3 +16,10 @@ def pic_handler(update, context):
 
 def fact_handler(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text=facts.get_random_wombat_fact())
+
+
+def schedule_pic_handler():
+    return schedule_wobmat_pic()
+
+def schedule_fact_handler():
+    return schedule_wobmat_fact()
